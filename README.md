@@ -39,3 +39,37 @@ Advanced-Employee-Management-System-2/
 └── README.md
 ```
 
+
+---
+
+## ▶️ How to Run
+
+### Compile the program
+```bash
+g++ Employee_magagement_systme.cpp -o employee
+```
+## Run the program
+Linux / macOS
+```
+./employee
+```
+Windows
+```
+employee.exe
+```
+## 🎯 Purpose of the Project
+
+This project was created to understand how employee information can be stored, managed, and retrieved in a real-world scenario using C++. It helps strengthen concepts of data handling, file operations, and program organization.
+
+🚀 Future Enhancements
+
+Add login authentication (Admin/User)
+
+Implement salary and department modules
+
+Add sorting and filtering of records
+
+Integrate with a database system
+
+Build a graphical user interface (GUI)
+
