@@ -32,4 +32,10 @@ This project demonstrates the practical use of structured programming concepts i
 ---
 
 ## 📁 Project Structure
+```
+Advanced-Employee-Management-System-2/
+│
+├── Employee_magagement_systme.cpp
+└── README.md
+```
 
