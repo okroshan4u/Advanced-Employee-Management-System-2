@@ -68,3 +68,7 @@ This project was created to understand how employee information can be stored, m
 - Integrate with a database system
 - Build a graphical user interface (GUI)
 
+## Author
+Roshan Kumar Ram
+
+GitHub: https://github.com/okroshan4u
