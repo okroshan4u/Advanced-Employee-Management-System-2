@@ -3,158 +3,192 @@
 #include <chrono>
 #include <string>
 #include <conio.h>
+#include <vector>
 using namespace std;
 
 struct emp
 {
-    string name, contact,id, address;
-    int  salary;
+    string name, contact, id, address;
+    int salary;
 };
-emp e[100];
-int total = 0;
+
+vector<emp> e;
+
 void empdata()
 {
     int choice;
-    cout << "How many employees data do you want to enter?\n";
+    cout << "How many employees do you want to enter? ";
     cin >> choice;
-    for (int i = total; i < total + choice; i++)
+
+    for (int i = 0; i < choice; i++)
     {
-        cout << "Enter data of employee" << i + 1 << endl;
-        cout << "Employee Name: ";
-        cin >> e[i].name;
-        cout<<"ID: ";
-        cin>>e[i].id;
+        emp temp;
+        cout << "\nEnter data of employee " << e.size() + 1 << endl;
+
+        cout << "Name: ";
+        cin >> temp.name;
+
+        cout << "ID: ";
+        cin >> temp.id;
+
         cout << "Address: ";
-        cin >> e[i].address;
-        cout << "contact: ";
-        cin >> e[i].contact;
-        cout << "salary: ";
-        cin >> e[i].salary;
+        cin >> temp.address;
+
+        cout << "Contact: ";
+        cin >> temp.contact;
+
+        cout << "Salary: ";
+        cin >> temp.salary;
+
+        e.push_back(temp); // This adds the employee safely
     }
-    total = total + choice;
 }
 
+// void show()
+// {
+//     if (e.size() != 0)
+//     {
+//         for (int i = 0; i < e.size(); i++)
+//         {
+//             emp temp;
+//             cout << "Data of employee " << i + 1 << endl;
+//             cout << "Employee Name: " << temp.name << endl;
+//             cout << "ID: " << temp.id << endl;
+//             cout << "Address: " << temp.address << endl;
+//             cout << "Salary: " << temp.salary << endl;
+//             cout << "Contact: " << temp.contact << endl;
+
+//             e.push_back(temp);
+//         }
+//     }
+//     else
+//     {
+//         cout << "Your record is empty" << endl;
+//     }
+// }
 void show()
 {
-    if (total != 0)
+
+    if (e.empty())
     {
-        for (int i = 0; i < total; i++)
+        cout << "Your record is empty" << endl;
+    }
+
+    for (int i = 0; i < e.size(); i++)
+    {
+
+        cout << "\nData of employee " << i + 1 << endl;
+        cout << "Employee Name: " << e[i].name << endl;
+        cout << "ID: " << e[i].id << endl;
+        cout << "Address: " << e[i].address << endl;
+        cout << "Salary: " << e[i].salary << endl;
+        cout << "Contact: " << e[i].contact << endl;
+    }
+}
+
+void search()
+{
+    if (e.empty())
+    {
+        cout << "Your reord is empty" << endl;
+        return;
+    }
+
+    string id;
+    cout << "Enter the Employee ID to search" << endl;
+    cin >> id;
+    for (int i = 0; i < e.size(); i++)
+    {
+
+        if (id == e[i].id)
         {
+            cout << "\nData of employee " << i + 1 << endl;
+            cout << "Employee Name: " << e[i].name << endl;
+            cout << "ID: " << e[i].id << endl;
+            cout << "Address: " << e[i].address << endl;
+            cout << "Salary: " << e[i].salary << endl;
+            cout << "Contact: " << e[i].contact << endl;
+            return;
+        }
+    }
+}
+
+void update()
+{
+
+    if (e.empty())
+    {
+        cout << "Your record is empty\n";
+        return;
+    }
+
+    string id;
+    cout << "Enter employee ID to update: ";
+    cin >> id;
+    for (int i = 0; i < e.size(); i++)
+    {
+        if (id == e[i].id)
+        {
+            cout << "\n Current data\n";
             cout << "Data of employee " << i + 1 << endl;
             cout << "Employee Name: " << e[i].name << endl;
             cout << "ID: " << e[i].id << endl;
             cout << "Address: " << e[i].address << endl;
             cout << "Salary: " << e[i].salary << endl;
             cout << "Contact: " << e[i].contact << endl;
-        }
-    }
-    else
-    {
-        cout << "Your record is empty" << endl;
-    }
-}
-void search()
-{
-    if (total != 0)
-    {
-        string id;
-        cout << "Enter the id od the employee whome data you data you want to search" << endl;
-        cin >> id;
-        for (int i = 0; i < total; i++)
-        {
-            if (id == e[i].id)
-            {
-                cout << "Data of employee " << i + 1 << endl;
-                cout << "Employee Name: " << e[i].name << endl;
-                cout << "ID: " << e[i].id << endl;
-                cout << "Address: " << e[i].address << endl;
-                cout << "Salary: " << e[i].salary << endl;
-                cout << "Contact: " << e[i].contact << endl;
-                break;
-            }
-            if (i == total - 1)
-            {
-                cout << "Employee is not in the record" << endl;
-            }
-        }
-    }
-    else
-    {
-        cout << "Your record is empty" << endl;
-    }
-}
-void update()
-{
-    if (total != 0)
-    {
-        string id;
-        cout << "Enter trhe id of the employee of which you want to update the data";
-        cin >> id;
-        for (int i = 0; i < total; i++)
-        {
-            if (id == e[i].id)
-            {
-                cout << "Previous data\n";
-                cout << "Data of employee " << i + 1 << endl;
-                cout << "Employee Name: " << e[i].name << endl;
-                cout << "ID: " << e[i].id << endl;
-                cout << "Address: " << e[i].address << endl;
-                cout << "Salary: " << e[i].salary << endl;
-                cout << "Contact: " << e[i].contact << endl;
 
-                cout << "Enter new data" << endl;
-                cout << "Employee Name: ";
-                cin >> e[i].name;
-                cout << "Address: ";
-                cin >> e[i].address;
-                cout << "contact: ";
-                cin >> e[i].contact;
-                cout << "salary: ";
-                cin >> e[i].salary;
-                break;
-            }
-            if (i == total - 1)
-            {
-                cout << "Employee is not in the record" << endl;
-            }
+            cout << "\nEnter new data\n"
+                 << endl;
+            cout << "Employee Name: ";
+            cin >> e[i].name;
+            cout << "Address: ";
+            cin >> e[i].address;
+            cout << "contact: ";
+            cin >> e[i].contact;
+            cout << "salary: ";
+            cin >> e[i].salary;
+
+            cout << "Employee updated successfully\n";
+            return;
         }
     }
+    cout << "Employee Not foud\n";
 }
+
 void del()
 {
-    if(total !=0){
-        char user;
-        cout<<"Press 1 to delete the full record\n";
-        cout<<"Press 2 to delete a specific data\n";
+    if (e.empty())
+    {
+        cout << "Your record is empty\n";
+        return;
+    }
 
-        user = getch();
-        if(user == '1'){
-            total = 0;
-            cout<<"All record is deleted ...!!";
-        }
-        if(user == '2'){
-            string id;
-            cout<<"Enter the id of the of employee whose data you want to delete: ";
-            cin>>id;
-            for(int i = 0;i<total ; i++){
-                if(e[i].id == id){
-                    for(int j = i ;j <total-1; j++){
-                        e[j].name = e[j+1].name;
-                        e[j].address = e[j+1].address;
-                        e[j].contact = e[j+1].contact;
-                        e[j].id = e[j+1].id;
-                        total--;
-                        break;
-                    }
-                    if(i == total - 1){
-                        cout<<"No such id found";
-                    }
-                }
+    char user;
+    cout << "Press 1 to delete the full record\n";
+    cout << "Press 2 to delete a specific data\n";
+
+    user = getch();
+    if (user == '1')
+    {
+        e.clear();
+        cout << "All record is deleted ...!!\n";
+        return;
+    }
+    if (user == '2')
+    {
+        string id;
+        cout << "Enter employee ID to delete: ";
+        cin >> id;
+        for (int i = 0; i < e.size(); i++)
+        {
+            if (e[i].id == id)
+            {
+                e.erase(e.begin() + i);
+                cout << "Employee deleted\n";
+                return;
             }
         }
-
-    }else{
-        cout<<"Your record is empty"<<endl;
+        cout << "No such ID found\n";
     }
 }
 
@@ -174,78 +208,64 @@ int main()
 
     cout << "\n\t\t Your id is creating please wait";
 
-    for (int i = 0; i < 8; i++)
+    for (int i = 0; i < 6; i++)
     {
         cout << ".";
         this_thread::sleep_for(chrono::seconds(1));
     }
 
-    cout << "\n\t\t Your id created successfully" << endl;
+    cout << "\n\t\t Your id created successfully \n" << endl;
+    this_thread::sleep_for(chrono::seconds(2));
 
-    system("CLS");
-start:
-    cout << "\n\n\t\tEmployee Management System" << endl;
-    cout << "\n\n\t\tLogin" << endl;
-    cout << "Username: ";
-    cout << "Password: ";
 
-    string username1, password1;
-    cout << "Username: ";
-    cin >> username1;
-    cout << "Password: ";
-    cin >> password1;
-
-    if (username1 == username && password1 == password)
+     while (true)   // app runs forever
     {
-        system("CLS");
-        char user;
-        while (1)
+        // LOGIN LOOP
+        while (true)
         {
-            cout << "Press 1 to enter data" << endl;
-            cout << "Press 2 to show data" << endl;
-            cout << "Press 3 to search data" << endl;
-            cout << "Press 4 to update data" << endl;
-            cout << "Press 5 to delete data" << endl;
-            cout << "Press 6 to logout" << endl;
-            user = getch();
-            switch (user)
+            system("CLS");
+            cout << "\n\n\t\tEmployee Management System\n";
+            cout << "\n\t\tLogin\n";
+
+            string user, pass;
+            cout << "Username: ";
+            cin >> user;
+            cout << "Password: ";
+            cin >> pass;
+
+            if (user == username && pass == password)
+                break;
+
+            cout << "Invalid login. Try again.\n";
+            this_thread::sleep_for(chrono::seconds(2));
+        }
+
+        system("CLS");
+
+        // MENU LOOP
+        while (true)
+        {
+            cout << "\n1. Enter data";
+            cout << "\n2. Show data";
+            cout << "\n3. Search data";
+            cout << "\n4. Update data";
+            cout << "\n5. Delete data";
+            cout << "\n6. Logout\n";
+
+            char ch = getch();
+
+            if (ch == '6')
+                break;
+
+            switch (ch)
             {
-            case '1':
-                empdata();
-                break;
-            case '2':
-                show();
-                break;
-            case '3':
-                search();
-                break;
-            case '4':
-                update();
-                break;
-            case '5':
-                del();
-                break;
-            case '6':
-                goto start;
-                break;
-            default:
-                cout << "\a Invalid input" << endl;
-                break;
+                case '1': empdata(); break;
+                case '2': show(); break;
+                case '3': search(); break;
+                case '4': update(); break;
+                case '5': del(); break;
             }
         }
     }
-    else if (username1 != username)
-    {
-        cout << "Your username is Incorrect";
-        this_thread::sleep_for(chrono::seconds(3));
-        goto start;
-    }
-    else if (password1 != password)
-    {
-        cout << "Your password is wrong";
-        this_thread::sleep_for(chrono::seconds(3));
-        goto start;
-    }
-
     return 0;
 }
