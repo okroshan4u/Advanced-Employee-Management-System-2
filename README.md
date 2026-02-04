@@ -21,44 +21,51 @@ This project demonstrates the practical use of structured programming concepts i
 
 ```mermaid
 flowchart TD
-    A([🚀 Start Program]):::start --> B[📋 Display Menu]:::menu
-    B --> C{🤔 User Choice}:::choice
+    A(Start Program) --> B(Display Menu)
+    B --> C{User Choice}
 
-    C -->|➕ Add Employee| D[📝 Input Employee Details]:::input
-    D --> E[💾 Save to File]:::file
+    C -->|Add Employee| D(Input Employee Details)
+    D --> E(Save to File)
     E --> B
 
-    C -->|👀 View Employees| F[📂 Read Data from File]:::file
-    F --> G[📊 Display Records]:::display
+    C -->|View Employees| F(Read Data from File)
+    F --> G(Display Employee Records)
     G --> B
 
-    C -->|🔍 Search Employee| H[🆔 Enter Employee ID]:::input
-    H --> I[🔎 Search in File]:::process
-    I --> J[📄 Display Result]:::display
+    C -->|Search Employee| H(Enter Employee ID)
+    H --> I(Search in File)
+    I --> J(Display Result)
     J --> B
 
-    C -->|✏️ Update Employee| K[🆔 Enter Employee ID]:::input
-    K --> L[🛠 Modify Record]:::process
-    L --> M[💾 Update File]:::file
+    C -->|Update Employee| K(Enter Employee ID)
+    K --> L(Modify Record)
+    L --> M(Update File)
     M --> B
 
-    C -->|🗑 Delete Employee| N[🆔 Enter Employee ID]:::input
-    N --> O[❌ Remove Record]:::process
-    O --> P[💾 Update File]:::file
+    C -->|Delete Employee| N(Enter Employee ID)
+    N --> O(Remove Record)
+    O --> P(Update File)
     P --> B
 
-    C -->|🚪 Exit| Q([🏁 End Program]):::end
+    C -->|Exit| Q(End Program)
 
-    %% Styles
-    classDef start fill:#00c853,color:#fff,stroke:#2e7d32,stroke-width:2px
-    classDef end fill:#d50000,color:#fff,stroke:#b71c1c,stroke-width:2px
-    classDef menu fill:#2962ff,color:#fff,stroke:#0d47a1,stroke-width:2px
-    classDef choice fill:#ffd600,color:#000,stroke:#f9a825,stroke-width:2px
-    classDef input fill:#00bcd4,color:#000,stroke:#00838f,stroke-width:2px
-    classDef file fill:#8e24aa,color:#fff,stroke:#4a148c,stroke-width:2px
-    classDef process fill:#ff7043,color:#000,stroke:#e64a19,stroke-width:2px
-    classDef display fill:#66bb6a,color:#000,stroke:#2e7d32,stroke-width:2px
+    class A start;
+    class Q endNode;
+    class B menu;
+    class C choice;
+    class D,H,K,N input;
+    class E,F,M,P file;
+    class I,L,O process;
+    class G,J display;
 
+    classDef start fill:#00c853,color:#ffffff,stroke:#2e7d32,stroke-width:2px;
+    classDef endNode fill:#d50000,color:#ffffff,stroke:#b71c1c,stroke-width:2px;
+    classDef menu fill:#2962ff,color:#ffffff,stroke:#0d47a1,stroke-width:2px;
+    classDef choice fill:#ffd600,color:#000000,stroke:#f9a825,stroke-width:2px;
+    classDef input fill:#4dd0e1,color:#000000,stroke:#00838f,stroke-width:2px;
+    classDef file fill:#8e24aa,color:#ffffff,stroke:#4a148c,stroke-width:2px;
+    classDef process fill:#ff8a65,color:#000000,stroke:#e64a19,stroke-width:2px;
+    classDef display fill:#81c784,color:#000000,stroke:#2e7d32,stroke-width:2px;
 ```
 
 ---
