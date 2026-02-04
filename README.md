@@ -17,6 +17,40 @@ This project demonstrates the practical use of structured programming concepts i
 - Menu-driven and user-friendly interface  
 
 ---
+## 📊 System Diagram
+
+```mermaid
+flowchart TD
+    A[Start Program] --> B[Display Menu]
+    B --> C{User Choice}
+
+    C -->|Add Employee| D[Input Employee Details]
+    D --> E[Save to File]
+    E --> B
+
+    C -->|View Employees| F[Read Data from File]
+    F --> G[Display Employee Records]
+    G --> B
+
+    C -->|Search Employee| H[Enter Employee ID]
+    H --> I[Search in File]
+    I --> J[Display Result]
+    J --> B
+
+    C -->|Update Employee| K[Enter Employee ID]
+    K --> L[Modify Record]
+    L --> M[Update File]
+    M --> B
+
+    C -->|Delete Employee| N[Enter Employee ID]
+    N --> O[Remove Record]
+    O --> P[Update File]
+    P --> B
+
+    C -->|Exit| Q[End Program]
+```
+
+---
 
 ## 🛠 Technologies Used
 
