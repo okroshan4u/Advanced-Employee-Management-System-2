@@ -61,15 +61,10 @@ employee.exe
 
 This project was created to understand how employee information can be stored, managed, and retrieved in a real-world scenario using C++. It helps strengthen concepts of data handling, file operations, and program organization.
 
-🚀 Future Enhancements
-
-Add login authentication (Admin/User)
-
-Implement salary and department modules
-
-Add sorting and filtering of records
-
-Integrate with a database system
-
-Build a graphical user interface (GUI)
+## 🚀 Future Enhancements
+- Add login authentication (Admin/User)
+- Implement salary and department modules
+- Add sorting and filtering of records
+- Integrate with a database system
+- Build a graphical user interface (GUI)
 
